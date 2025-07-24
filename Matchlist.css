@@ -1,0 +1,22 @@
+fieldset#Input {
+  display: grid;
+  grid-auto-flow: column;
+}
+fieldset#Input form {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+fieldset#Items {
+  display: grid;
+  grid-auto-flow: row;
+}
+
+fieldset#Items div{
+  display: grid;
+  grid-auto-flow: column;
+}
+
+input {
+  width: 60%;
+}
