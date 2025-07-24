@@ -41,7 +41,6 @@ var Matchlist;
             div.innerHTML += item.description;
             div.appendChild(pre);
             div.appendChild(post);
-            // div.style.order = "" + (10 - iItem);
             list.appendChild(div);
             items.push(item);
         }
@@ -55,10 +54,22 @@ var Matchlist;
         sort();
     }
     function sort() {
+        const matches = [];
+        const tops = [];
         for (const item of items) {
-            const match = compare(item);
+            tops.push(item.element.getClientRects()[0].top);
+            matches.push(compare(item));
+        }
+        for (const item of items) {
+            const match = matches.pop();
             item.element.style.order = match.toString();
-            console.log(item.description, match);
+            // console.log(item.description, match);
+        }
+        for (const index in items) {
+            items[index].element.animate([
+                { transformOrigin: 'top left', transform: `translate(${0}px, ${tops[index] - items[index].element.getClientRects()[0].top}px)` },
+                { transformOrigin: 'top left', transform: 'none' }
+            ], { duration: 1000, easing: 'ease', fill: 'both' });
         }
     }
     function compare(_item) {

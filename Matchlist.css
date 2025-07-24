@@ -2,6 +2,7 @@ fieldset#Input {
   display: grid;
   grid-auto-flow: column;
 }
+
 fieldset#Input form {
   display: grid;
   grid-auto-flow: row;
@@ -12,9 +13,11 @@ fieldset#Items {
   grid-auto-flow: row;
 }
 
-fieldset#Items div{
+fieldset#Items div {
   display: grid;
   grid-auto-flow: column;
+  /* transition-behavior: allow-discrete;
+  transition: order 1s ; */
 }
 
 input {
