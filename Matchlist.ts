@@ -46,7 +46,7 @@ namespace Matchlist {
         item.pre[criterion] = value;
         pre.innerHTML += criterion + ":" + value + " ";
         value = Math.floor(Math.random() * 5);
-        item.post[criterion] = Math.floor(Math.random() * 5);
+        item.post[criterion] = value;
         post.innerHTML += criterion + ":" + value + " ";
       }
 
@@ -78,9 +78,9 @@ namespace Matchlist {
     }
 
     for (const item of items) {
-      const match: number = matches.pop();
+      const match: number = matches.shift();
       item.element.style.order = match.toString();
-      // console.log(item.description, match);
+      console.log(item.description, match);
     }
 
     for (const index in items) {
